@@ -2,6 +2,8 @@ import pandas as pd
 import sys
 import json
 from urllib.request import urlopen
+import requests
+from requests.exceptions import ConnectionError
 
 # input parameters
 lat = sys.argv[1]
@@ -12,6 +14,11 @@ size = sys.argv[3]
 nrel_api_key = 'kVTh5O88nbYohgldbB92JC17TL4UzxwauQo1x2Ha'
 
 url = 'https://developer.nrel.gov/api/pvwatts/v6.json?api_key=%s&lat=%s&lon=%s&system_capacity=%s&azimuth=180&tilt=40&array_type=1&module_type=1&losses=10' % (nrel_api_key, lat, long, size)
+
+## add catch for bad locations
+if(requests.get(url).status_code != 200):
+    print('You appear to have chosen a location without data! Maybe try again?')
+    exit()
 
 response = urlopen(url)
 pv_out = json.loads(response.read())
