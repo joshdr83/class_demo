@@ -1,6 +1,4 @@
-import pandas as pd
-import sys
-import json
+import pandas as pd, sys, json
 from urllib.request import urlopen
 import requests
 from requests.exceptions import ConnectionError
