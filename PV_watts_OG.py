@@ -7,7 +7,7 @@ long = sys.argv[2]
 size = sys.argv[3]
 
 # url generator
-nrel_api_key = 'kVTh5O88nbYohgldbB92JC17TL4UzxwauQo1x2Ha'
+nrel_api_key = ''
 
 url = 'https://developer.nrel.gov/api/pvwatts/v6.json?api_key=%s&lat=%s&lon=%s&system_capacity=%s&azimuth=180&tilt=40&array_type=1&module_type=1&losses=10' % (nrel_api_key, lat, long, size)
 
