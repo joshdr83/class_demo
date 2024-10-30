@@ -1,4 +1,6 @@
-import sys, json, requests
+import sys
+import json
+import requests
 from urllib.request import urlopen
 
 # input parameters
